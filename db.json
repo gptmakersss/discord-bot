@@ -1,0 +1,180 @@
+{
+  "soldiers": [
+    "נהוראי לוי (סמל)"
+  ],
+  "links": {
+    "10603693": {
+      "soldier": "נהוראי לוי (סמל)",
+      "alias": "נשק"
+    },
+    "5337417": {
+      "soldier": "נהוראי לוי (סמל)",
+      "alias": "כוונת"
+    }
+  },
+  "link": [],
+  "sign": {
+    "נהוראי לוי (סמל)": {
+      "items": [
+        "6 מחסניות",
+        "ערכת נקנש",
+        "רצועה לנשק"
+      ],
+      "others": [],
+      "נשק": {
+        "state": "אצל החייל",
+        "note": null
+      },
+      "כוונת": {
+        "state": "אצל החייל",
+        "note": null
+      }
+    }
+  },
+  "tsign": {},
+  "status": {
+    "נהוראי לוי (סמל)": {
+      "6 מחסניות": {
+        "state": "בלאי",
+        "note": "מחסנית אחת",
+        "updated_at": "2026-03-05 22:34:40"
+      }
+    }
+  },
+  "inventory": {},
+  "tasks": [
+    {
+      "id": 1,
+      "title": "בוט סמל",
+      "details": "לסיים להכין את כל הבוט ולהכניס את הנתונים הרלוונטיים כבר",
+      "priority": "גבוה",
+      "date": "2026-02-28",
+      "status": "פתוח",
+      "created_at": "2026-02-18 08:23:41",
+      "updated_at": "2026-02-18 08:23:41"
+    },
+    {
+      "id": 2,
+      "title": "sjfapw",
+      "details": "",
+      "priority": "בינוני",
+      "date": null,
+      "status": "בוצע",
+      "created_at": "2026-03-05 19:34:21",
+      "updated_at": "2026-03-05 19:35:31"
+    }
+  ],
+  "incidents": [],
+  "notes": [],
+  "kashag": {
+    "נהוראי לוי (סמל)": {
+      "run": 825,
+      "updated_at": "2026-02-28 16:51:59"
+    }
+  },
+  "gun_storage": [
+    {
+      "id": 1,
+      "kind": "נשק",
+      "serial": "1234",
+      "soldier": "נהוראי לוי (סמל)",
+      "label": "נשק",
+      "location": "לא מאופסן",
+      "custom_location": null,
+      "stored_date": "2026-02-28",
+      "remind": false,
+      "next_due": null,
+      "reminder_message_id": null,
+      "updated_at": "2026-02-28 16:49:06"
+    },
+    {
+      "id": 2,
+      "kind": "נשק",
+      "serial": "10603693",
+      "soldier": "נהוראי לוי (סמל)",
+      "label": "נשק",
+      "location": "לא מאופסן",
+      "custom_location": null,
+      "stored_date": "2026-03-05",
+      "remind": false,
+      "next_due": null,
+      "reminder_message_id": null,
+      "updated_at": "2026-03-05 21:26:38"
+    },
+    {
+      "id": 3,
+      "kind": "נשק",
+      "serial": "5337417",
+      "soldier": "נהוראי לוי (סמל)",
+      "label": "כוונת",
+      "location": "לא מאופסן",
+      "custom_location": null,
+      "stored_date": "2026-03-05",
+      "remind": false,
+      "next_due": null,
+      "reminder_message_id": null,
+      "updated_at": "2026-03-05 21:26:41"
+    }
+  ],
+  "nishkia": {},
+  "weapon_issues": [],
+  "attention": {
+    "נהוראי לוי (סמל)": {
+      "6 מחסניות": {
+        "state": "בלאי",
+        "note": "מחסנית אחת",
+        "updated_at": "2026-03-05 22:34:40"
+      }
+    }
+  },
+  "meta": {
+    "version": 1,
+    "tasks": {
+      "last_daily_refresh_date": "2026-03-04",
+      "last_cleanup_date": "2026-03-05",
+      "tasks_channel_message_id": 1479197723776385129
+    },
+    "inventory": {
+      "last_daily_refresh_date": "2026-03-05",
+      "inventory_channel_message_id": 1479197733767352565
+    },
+    "kashag": {
+      "last_daily_refresh_date": "2026-03-05",
+      "fitness_channel_message_id": null
+    },
+    "incident": {
+      "incidents_channel_message_id": 1479197725869215755
+    },
+    "notes": {
+      "notes_channel_message_id": 1479197731296641197,
+      "last_daily_refresh_date": "2026-03-05"
+    },
+    "sign": {
+      "signs_channel_message_id": 1479197735910506660
+    },
+    "attention": {
+      "attention_channel_message_id": 1479197737361739909,
+      "last_daily_refresh_date": "2026-03-05"
+    },
+    "nishkia": {
+      "nishkia_channel_message_id": 1479197740193026291,
+      "last_daily_refresh_date": "2026-03-05"
+    },
+    "weapon_issues": {
+      "weapon_issues_channel_message_id": 1479197742076264539,
+      "last_daily_refresh_date": "2026-03-05",
+      "weapon_issues_message_id": 1474480884705919182
+    },
+    "daily_reports": {
+      "last_sent_date": "2026-03-04",
+      "message_ids": {
+        "tasks": 1479226877951475816,
+        "incidents": 1479226883122925638,
+        "notes": 1479226887527071856,
+        "inventory": 1479226892128358443,
+        "signs": 1478829441735200798,
+        "attention": 1479226895492059279
+      }
+    }
+  }
+}

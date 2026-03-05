@@ -1,0 +1,146 @@
+# bot.py (V2 - סמל)
+# -*- coding: utf-8 -*-
+from __future__ import annotations
+
+import asyncio
+import discord
+from discord.ext import commands
+
+# =======================
+# 🔑 DISCORD BOT TOKEN
+# =======================
+# 👉 תדביק כאן את הטוקן של הבוט
+TOKEN = "token"
+
+# =======================
+# Server
+# =======================
+GUILD_ID = 1473567525831835671
+
+# =======================
+# Channels (IDs)
+# =======================
+CHANNELS = {
+    # כללי
+    "tasks": 1473567796637077669,
+    "commands": 1473567800923652257,
+    "logs": 1473567803159085259,
+    "incidents": 1473567804568506368,
+    "kashag": 1473567805768208424,
+    "notes": 1473567807429021746,
+
+    # לוגיסטיקה
+    "inventory": 1473567808578125898,
+    "signs": 1473567809631158425,
+    "attention": 1473567813875531830,
+
+    # נשקייה
+    "assets": 1473567811052896288,
+    "armory": 1473567812193751145,
+    "weapon_issues": 1473567814899208202,
+}
+
+# =======================
+# Discord intents
+# =======================
+intents = discord.Intents.default()
+intents.message_content = True
+
+bot = commands.Bot(command_prefix="!", intents=intents)
+
+# expose config to cogs
+bot.GUILD_ID = GUILD_ID
+bot.guild_obj = discord.Object(id=GUILD_ID)
+bot.CHANNELS = CHANNELS
+
+# =======================
+# Helpers
+# =======================
+async def _get_channel(channel_id: int):
+    ch = bot.get_channel(channel_id)
+    if ch:
+        return ch
+    try:
+        return await bot.fetch_channel(channel_id)
+    except Exception:
+        return None
+
+
+async def send_log(title: str, details: str):
+    ch_id = bot.CHANNELS.get("logs")
+    if not ch_id:
+        return
+    ch = await _get_channel(ch_id)
+    if not ch:
+        return
+
+    embed = discord.Embed(title=title, description=details)
+    await ch.send(embed=embed)
+
+
+bot.send_log = send_log
+
+# =======================
+# Extensions (cogs)
+# =======================
+EXTENSIONS = [
+    "cogs.soldier",
+
+    "cogs.sign",
+    "cogs.tsign",
+    "cogs.status",
+    "cogs.inventory",
+    "cogs.logistica",
+    "cogs.attention",
+    
+    "cogs.daily_reports",
+    "cogs.link",
+    "cogs.find",
+    "cogs.gun",
+    "cogs.nishkia",
+    "cogs.weapon_issues",
+
+    "cogs.task",
+    "cogs.kashag",
+    "cogs.incident",
+    "cogs.note",
+
+    "cogs.whatsapp",
+    "cogs.resend",
+    "cogs.info_commands",
+    "cogs.tests",
+]
+
+# =======================
+# Events
+# =======================
+@bot.event
+async def on_ready():
+    print(f"✅ Logged in as {bot.user}")
+    try:
+        synced = await bot.tree.sync(guild=bot.guild_obj)
+        print(f"✅ Synced {len(synced)} slash commands")
+    except Exception as e:
+        print("❌ Sync error:", e)
+
+
+async def load_cogs():
+    for ext in EXTENSIONS:
+        try:
+            await bot.load_extension(ext)
+            print(f"✅ Loaded {ext}")
+        except Exception as e:
+            print(f"❌ Failed loading {ext}: {e}")
+
+
+async def main():
+    if "PASTE_YOUR_DISCORD_BOT_TOKEN_HERE" in TOKEN:
+        raise RuntimeError("❌ לא הכנסת טוקן לבוט")
+
+    async with bot:
+        await load_cogs()
+        await bot.start(TOKEN)
+
+
+if __name__ == "__main__":
+    asyncio.run(main())
